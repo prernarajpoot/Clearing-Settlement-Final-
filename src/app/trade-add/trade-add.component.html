@@ -1,0 +1,44 @@
+<h1>Add Trade</h1>
+<flex-container>
+    <div class="align-form">
+        <!-- {{postTradeData | json }} -->
+        <form #add="ngForm" class = "form-style" (ngSubmit)=onSubmit(add)>
+    <mat-form-field class = "field-style" appearance="fill">
+    <mat-label class = "label-style">Buyer CM</mat-label>
+    <mat-select required [(ngModel)]="postTradeData.bcm_id" name= "buyerName" >
+      <mat-option *ngFor="let cm of cmNames" [value]="cm.value">
+        {{cm.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+    <mat-form-field class = "field-style" appearance="fill">
+    <mat-label class = "label-style">Seller CM</mat-label>
+    <mat-select required [(ngModel)]="postTradeData.scm_id" name= "sellerName">
+      <mat-option *ngFor="let cm of cmNames" [value]="cm.value">
+        {{cm.viewValue}}
+      </mat-option>
+    </mat-select>
+</mat-form-field><br>
+
+      <mat-form-field class = "field-style" appearance="fill">
+    <mat-label class = "label-style">Stock</mat-label>
+    <mat-select required [(ngModel)]="postTradeData.stock_id" name="stock">
+      <mat-option *ngFor="let stock of stocks" [value]="stock.value">
+        {{stock.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+    <mat-form-field class = "field-style">
+        <mat-label class = "label-style">Price</mat-label>
+        <input required type = "number" min = "0" matInput [(ngModel)]="postTradeData.price" name= "price">
+      </mat-form-field><br>
+
+    <mat-form-field class = "field-style">
+        <mat-label class = "label-style">Quantity</mat-label>
+        <input required type = "number" min = "0" oninput="validity.valid||(value='');" matInput [(ngModel)]="postTradeData.qty" name = "quantity">
+      </mat-form-field><br>
+      <button mat-raised-button>Submit</button>
+      </form>
+</div>
+</flex-container>

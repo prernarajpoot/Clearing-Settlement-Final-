@@ -1,0 +1,48 @@
+
+/* .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px;
+  }
+  .flex-container > div {
+      margin: 100px;
+  } */
+
+  .align-form{
+      width: 300px;
+      margin: 50px auto;
+  }
+  
+  .form-style{
+      background-color: whitesmoke;
+      align-content: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .field-style{
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: -20px;
+      background-color: whitesmoke;
+  }
+
+  .label-style{
+      font-weight: bold;
+  }
+
+  button{
+      margin-bottom: 10px;
+      background-color: seagreen;
+      color: white;
+  }
+
+  h1{
+      text-align: center;
+      color: white;
+      margin-top: 40px;
+      margin-bottom: -20px;
+  }

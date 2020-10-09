@@ -1,0 +1,39 @@
+<h2>Cost Settlement Report</h2>
+<div class="flex-container">
+  
+  <table mat-table [dataSource]="getData" class="mat-elevation-z8">
+    <ng-container matColumnDef="openingBalance">
+      <th mat-header-cell *matHeaderCellDef> Opening Balance <br>(A) </th>
+      <td mat-cell *matCellDef="let element">
+        {{element.openingBalance | number}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dailyObligation">
+      <th mat-header-cell *matHeaderCellDef> Daily Obligation <br>(B)</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.dailyObligation | number}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="costOfFunds">
+      <th mat-header-cell *matHeaderCellDef> Cost of funds <br>(C)</th>
+      <td mat-cell *matCellDef="let element"> {{element.costOfFunds | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="costOfSecurities">
+      <th mat-header-cell *matHeaderCellDef> Cost of Securities <br>(D)</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.costOfSecurities | number}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Closing Balance <br>(A + B - C - D)</th>
+      <td mat-cell *matCellDef="let element"> {{element.total | number}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

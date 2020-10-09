@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'side' : 'push'"
+    [opened]="(isHandset$ | async) === true"
+  >
+    <mat-toolbar color="indigo">
+      <span> Menu </span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a *ngIf="ch" mat-list-item href="/overview"> Overview</a>
+      <a *ngIf="ch" mat-list-item href="/tradebook">Tradebook</a>
+      <a *ngIf="ch" mat-list-item href="/stockOb">Stock Obligation</a>
+      <a *ngIf="ch" mat-list-item href="/fundOb">Fund Obligation</a>
+      <a *ngIf="ch" mat-list-item href="/add-trade">Add Trade</a>
+
+      <a *ngIf="cm" mat-list-item href="/cm-overview"> Overview</a>
+      <a *ngIf="cm" mat-list-item href="/cm-tradebook"> Tradebook</a>
+      <a *ngIf="cm" mat-list-item href="/cm-obligations"> Obligations</a>
+      <a *ngIf="cm" mat-list-item href="/csreport">
+        Cost Settlement Report</a
+      >
+      <a *ngIf="cm" mat-list-item href="/careport">
+        Corporate Actions Report</a
+      >
+      <!-- <a *ngIf="cm" mat-list-item href="/csreport-after">
+        CM Cost Settlement Report After CA</a
+      > -->
+
+      <a mat-list-item (click)="deleteCookie()" href="/login">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        (click)="checkType()"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        class="primary"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>TRADE REGLAR</span>
+      <img src = "assets/2.png">
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

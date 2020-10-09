@@ -1,0 +1,50 @@
+<h2>Corporate Actions Report</h2><br>
+<h3>(All figures are in USD)</h3>
+<div class="flex-container">
+  
+  <table mat-table [dataSource]="getData" class="mat-elevation-z8">
+    <ng-container matColumnDef="stockName">
+      <th mat-header-cell *matHeaderCellDef>Name of Stock</th>
+      <td mat-cell *matCellDef="let element">{{element.stockName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="openingBalance">
+      <th mat-header-cell *matHeaderCellDef>Opening Balance</th>
+      <td mat-cell *matCellDef="let element">{{element.openingBalance | number}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dailyObligation">
+      <th mat-header-cell *matHeaderCellDef>Daily Obligation</th>
+      <td mat-cell *matCellDef="let element"
+        >{{element.dailyObligation | number}}</td
+      >
+    </ng-container>
+
+    <ng-container matColumnDef="netTotal">
+      <th mat-header-cell *matHeaderCellDef> Net Total </th>
+      <td mat-cell *matCellDef="let element"> {{element.netTotal | number}} </td>
+    </ng-container>
+    <ng-container matColumnDef="corporateActionName">
+      <th mat-header-cell *matHeaderCellDef> Corporate Action Type</th>
+      <td mat-cell *matCellDef="let element"> {{element.corporateActionName | titlecase}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="corporateAction">
+      <th mat-header-cell *matHeaderCellDef>Corporate Action Contribution</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.corporateAction | number}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="closingBalance">
+      <th mat-header-cell *matHeaderCellDef> Closing Balance</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.closingBalance | number}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
